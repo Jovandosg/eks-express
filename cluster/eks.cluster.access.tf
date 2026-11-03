@@ -6,7 +6,7 @@ resource "aws_eks_access_entry" "admin_user" {
 
 resource "aws_eks_access_policy_association" "admin_user" {
   cluster_name  = aws_eks_access_entry.admin_user.cluster_name
-  policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSAdminPolicy"
+  policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
   principal_arn = aws_eks_access_entry.admin_user.principal_arn
 
   access_scope {
