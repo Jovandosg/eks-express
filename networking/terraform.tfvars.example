@@ -1,0 +1,9 @@
+# Cross-account role to assume for this module.
+# Copy this file to terraform.tfvars (git-ignored) and fill in real values,
+# or export the equivalent via the TF_VAR_assume_role environment variable.
+#
+#   assume_role = { role_arn = "...", external_id = "..." }
+assume_role = {
+  role_arn    = "arn:aws:iam::ACCOUNT_ID:role/terraform-role"
+  external_id = "REPLACE_WITH_EXTERNAL_ID"
+}

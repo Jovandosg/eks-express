@@ -3,15 +3,12 @@ variable "region" {
 }
 
 variable "assume_role" {
+  description = "IAM role to assume (cross-account terraform-role). Provide via terraform.tfvars or TF_VAR_assume_role env var; do not hardcode in version control."
   type = object({
-    role_arn    = string,
+    role_arn    = string
     external_id = string
   })
-
-  default = {
-    role_arn    = "arn:aws:iam::975050217683:role/terraform-role"
-    external_id = "85f49f91-06d9-41c1-94e7-115efce183e9"
-  }
+  sensitive = true
 }
 
 variable "tags" {
