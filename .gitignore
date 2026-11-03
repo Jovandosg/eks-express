@@ -1,0 +1,22 @@
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform.tfplan
+.terraform.tfplan.*
+*.tfvars
+
+# Local validation test artifacts
+**/.validation-tests/
+
+# OS / editor
+.DS_Store
+*.swp
+*.swo
+*~
