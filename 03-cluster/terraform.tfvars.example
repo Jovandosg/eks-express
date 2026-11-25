@@ -1,0 +1,23 @@
+# Cross-account role to assume for this module.
+# Copy this file to terraform.tfvars (git-ignored) and fill in real values,
+# or export the equivalent via the TF_VAR_assume_role environment variable.
+#
+#   assume_role = { role_arn = "...", external_id = "..." }
+assume_role = {
+  role_arn    = "arn:aws:iam::ACCOUNT_ID:role/terraform-role"
+  external_id = "REPLACE_WITH_EXTERNAL_ID"
+}
+
+# IAM principal ARN for the CLI/Terraform user EKS access entry.
+# Must be a valid IAM user or role ARN that exists in the target account.
+# Set to null (or omit) to skip creating the bash access entry.
+# bash_user_arn = "arn:aws:iam::ACCOUNT_ID:user/devops-nuvem"
+
+# IAM principal ARN for the console/SSO user EKS access entry.
+# Must be a valid IAM user or role ARN that exists in the target account.
+# Set to null (or omit) to skip creating the console access entry.
+# console_user_arn = "arn:aws:iam::ACCOUNT_ID:role/aws-reserved/sso.amazonaws.com/AWSReservedSSO_PermissionSet_HASH"
+
+# Set to false to allow terraform destroy (e.g. in lab environments).
+# Comment out the lifecycle { prevent_destroy = true } blocks in eks.cluster.tf
+# and eks.cluster.node-group.tf to allow destruction.

@@ -1,0 +1,18 @@
+# Copy this file to terraform.tfvars (git-ignored) and replace the placeholders.
+# Terraform does not load terraform.tfvars files from other module directories.
+# Apply 03-cluster first to publish the Kubernetes_oidc_provider_arn,
+# Kubernetes_oidc_provider_url and Kubernetes_cluster_name outputs in its S3 state.
+# If an output is missing from an existing state, review the 03-cluster
+# refresh-only plan before applying it to update the state.
+# Controller IRSA trusts only the kube-system/karpenter ServiceAccount.
+# Node policies use a separate KarpenterNodeRole, not the controller role.
+assume_role = {
+  role_arn    = "arn:aws:iam::ACCOUNT_ID:role/terraform-role"
+  external_id = "REPLACE_WITH_EXTERNAL_ID"
+}
+
+# Optional role name overrides.
+# karpenter = {
+#   controller_role_name = "KarpenterControllerRole"
+#   node_role_name       = "KarpenterNodeRole"
+# }
